@@ -1,33 +1,16 @@
 from . import client as raw
-from . import cache
-from . import helpers
 
 try:
-    from . import events
+    pass
 except ImportError:
     pass
 
-from . import asset
-from . import casting
-from . import context
-from . import edit
-from . import entity
-from . import files
-from . import project
-from . import person
-from . import shot
-from . import sync
-from . import task
-from . import user
-from . import playlist
-from . import concept
 
 from .exception import (
     AuthFailedException,
     ParameterException,
     NotAuthenticatedException,
 )
-from .__version__ import __version__
 
 
 def get_host(client=raw.default_client):
@@ -87,8 +70,8 @@ def log_out(client=raw.default_client):
     return tokens
 
 
-def refresh_token(client=raw.default_client):
-    return client.refresh_authentication_tokens()
+def refresh_access_token(client=raw.default_client):
+    return client.refresh_access_token()
 
 
 def get_event_host(client=raw.default_client):
